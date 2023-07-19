@@ -29,13 +29,11 @@ import puppeteer from 'puppeteer';
 
   // Array que armazenará os dados pedidos
   const data = []
-
-  // Promise.all espera que todas as páginas sejam carregadas e executa o .map (asynchronous)
-  await Promise.all(links.map(async (e) => {
+  
+  for (const e of links) {
     // Acessa a pagina
     const newPage = await browser.newPage();
     await newPage.goto(e);
-    newPage.setDefaultTimeout(180_000)
 
     // Get image url
     await newPage.waitForSelector("img.turtle-image");
@@ -57,7 +55,35 @@ import puppeteer from 'puppeteer';
         }
     )
     await newPage.close();
-  }));
+  }
+  // Promise.all espera que todas as páginas sejam carregadas e executa o .map (asynchronous)
+  // await Promise.all(links.map(async (e) => {
+  //   // Acessa a pagina
+  //   const newPage = await browser.newPage();
+  //   await newPage.goto(e);
+  //   newPage.setDefaultTimeout(180_000)
+
+  //   // Get image url
+  //   await newPage.waitForSelector("img.turtle-image");
+  //   const imageURL = await newPage.$eval("img.turtle-image", (el)=>el.src)
+
+  //   // Get family name
+  //   await newPage.waitForSelector("h3.family-name");
+  //   const familyName = await newPage.$eval("h3.family-name", (el)=>el.textContent)
+
+  //   // Get description
+  //   await newPage.waitForSelector("p.lead");
+  //   const description = await newPage.$eval("p.lead", (el)=>el.textContent.trim())
+
+  //   data.push(
+  //       {
+  //           image: imageURL,
+  //           familyName: familyName,
+  //           description: description,
+  //       }
+  //   )
+  //   await newPage.close();
+  // }));
 
   // Como o map executa de forma asynchronous, ordena por ordem alfabetica de familyName
   data.sort((a,b)=> a.familyName.localeCompare(b.familyName));

@@ -5,13 +5,19 @@ import getImovelMaisBarato from './controllers/mais-barato.js';
 
 const app = express();
 
+// Middleware para tratamento de erros
+const errorHandler = (error, req, res, next) => {
+  console.error('Erro durante a execução do Puppeteer:', error);
+  res.status(500).json({ error: 'Erro durante a execução do Puppeteer.' });
+};
+
+// Rotas
 app.get('/api/imoveis/:local', async (req, res) => {
   try {
     const data = await getImoveis(req.params.local);
     res.json(data);
   } catch (error) {
-    console.error('Erro durante a execução do Puppeteer:', error);
-    res.status(500).json({ error: 'Erro durante a execução do Puppeteer.' });
+    next(error);
   }
 });
 
@@ -20,8 +26,7 @@ app.get('/api/imoveis/:local/mais-barato', async (req, res) => {
     const data = await getImovelMaisBarato(req.params.local);
       res.json(data);
     } catch (error) {
-      console.error('Erro durante a execução do Puppeteer:', error);
-      res.status(500).json({ error: 'Erro durante a execução do Puppeteer.' });
+      next(error);
     }
   });
 
@@ -30,8 +35,7 @@ app.get('/api/imoveis/:local/mais-barato', async (req, res) => {
       const data = await getImovelMaisCaro(req.params.local);
       res.json(data);
     } catch (error) {
-      console.error('Erro durante a execução do Puppeteer:', error);
-      res.status(500).json({ error: 'Erro durante a execução do Puppeteer.' });
+      next(error);
     }
   });
 
@@ -40,3 +44,6 @@ const port = 3000; // Escolha uma porta disponível
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
+
+// Tratamento de erros
+app.use(errorHandler);

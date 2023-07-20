@@ -71,7 +71,7 @@ async function getImoveis(local) {
 
       const qtdQuartos = itens.find((string)=>string.includes("Quartos")) ? itens.find((string)=>string.includes("Quartos")).replace("Quartos", '') : -1;
 
-      let tipo = itens.find((string)=>string.includes("Tipo")) ? (itens.find((string)=>string.includes("Tipo"))).includes("Venda") ? "Venda" : "aluguel" : -1;
+      let tipo = itens.find((string)=>string.includes("Tipo")) ? (itens.find((string)=>string.includes("Tipo"))).includes("Aluguel") ? "Aluguel" : "Venda" : -1;
 
       // Coloca todas informações em um array
       data.push({

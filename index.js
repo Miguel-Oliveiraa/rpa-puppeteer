@@ -3,7 +3,7 @@ import axios from 'axios';
 // Função para executar a solicitação HTTP com um nome específico
 async function fetchDataFromAPI(nome) {
   try {
-    const response = await axios.get(`http://localhost:3000/api/olx-data/${nome}`);
+    const response = await axios.get(`http://localhost:3000/api/imoveis/${nome}`);
     console.log(response.data);
   } catch (error) {
     console.error('Erro ao acessar a API:', error);

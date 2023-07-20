@@ -18,7 +18,6 @@ async function getImoveis(local) {
     const page = await browser.newPage();
     await page.setViewport({width: 1366,height: 768});
     await page.setDefaultTimeout(180000);
-    const local = req.params.local;
     await page.goto(`https://www.olx.com.br/imoveis/estado-pe?q=${local}`);
   
     // Pega o numero da ultima pagina

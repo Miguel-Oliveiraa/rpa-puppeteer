@@ -7,8 +7,7 @@ const app = express();
 
 app.get('/api/imoveis/:local', async (req, res) => {
   try {
-    const local = req.params.local;
-    const data = await getImoveis(local);
+    const data = await getImoveis(req.params.local);
     res.json(data);
   } catch (error) {
     console.error('Erro durante a execução do Puppeteer:', error);
@@ -18,9 +17,7 @@ app.get('/api/imoveis/:local', async (req, res) => {
 
 app.get('/api/imoveis/:local/mais-barato', async (req, res) => {
     try {
-    const local = req.params.local;
-    const data = await getImovelMaisBarato(local);
-      // Enviar o array 'data' como resposta
+    const data = await getImovelMaisBarato(req.params.local);
       res.json(data);
     } catch (error) {
       console.error('Erro durante a execução do Puppeteer:', error);
@@ -30,9 +27,7 @@ app.get('/api/imoveis/:local/mais-barato', async (req, res) => {
 
   app.get('/api/imoveis/:local/mais-caro', async (req, res) => {
     try {
-      const local = req.params.local;
-      const data = await getImovelMaisCaro(local);
-      // Enviar o array 'data' como resposta
+      const data = await getImovelMaisCaro(req.params.local);
       res.json(data);
     } catch (error) {
       console.error('Erro durante a execução do Puppeteer:', error);

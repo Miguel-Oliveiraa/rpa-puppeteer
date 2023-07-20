@@ -6,7 +6,7 @@ const app = express();
 app.get('/api/imoveis/:local', async (req, res) => {
   try {
     const browser = await puppeteer.launch({ 
-      headless: 'new',
+      headless: false,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -108,7 +108,7 @@ app.get('/api/imoveis/:local', async (req, res) => {
 app.get('/api/imoveis/:local/mais-barato', async (req, res) => {
     try {
       const browser = await puppeteer.launch({ 
-        headless: 'new',
+        headless: false,
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
@@ -189,7 +189,7 @@ app.get('/api/imoveis/:local/mais-barato', async (req, res) => {
   app.get('/api/imoveis/:local/mais-caro', async (req, res) => {
     try {
       const browser = await puppeteer.launch({ 
-        headless: 'new',
+        headless: false,
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',

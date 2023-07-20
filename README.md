@@ -102,5 +102,5 @@ npm start
 ## Observações
 
 - Certifique-se de ter o Node.js e o npm instalados em sua máquina.
-- A API utiliza o Puppeteer para realizar a extração de informações dos anúncios no site OLX. O Puppeteer será executado em modo headless (sem interface gráfica).
+- A API utiliza o Puppeteer para realizar a extração de informações dos anúncios no site OLX. O Puppeteer será executado em modo headless:"false" (com interface gráfica).
 - O tempo de resposta pode variar dependendo da quantidade de páginas de anúncios a serem consultadas.

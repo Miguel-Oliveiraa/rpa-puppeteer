@@ -35,7 +35,7 @@ Esta é uma API de consulta de imóveis desenvolvida com Express e Puppeteer par
 
    ```
 
-1. **Informações do Imóvel Mais Barato em um Local**
+2. **Informações do Imóvel Mais Barato em um Local**
 
    Endpoint: `GET /api/imoveis/:local/mais-barato`
 
@@ -59,7 +59,7 @@ Esta é uma API de consulta de imóveis desenvolvida com Express e Puppeteer par
    }
    ```
 
-1. **Informações do Imóvel Mais Caro em um Local**
+3. **Informações do Imóvel Mais Caro em um Local**
 
    Endpoint: `GET /api/imoveis/:local/mais-caro`
 
@@ -91,16 +91,16 @@ Esta é uma API de consulta de imóveis desenvolvida com Express e Puppeteer par
 npm install
 ```
 
-1. Inicie o servidor:
+2. Inicie o servidor:
 
 ```
 npm start
 ```
 
-1. Acesse a API utilizando os endpoints descritos acima para obter as informações dos imóveis em um local específico, bem como os imóveis mais caros e mais baratos desse local.
+3. Acesse a API utilizando os endpoints descritos acima para obter as informações dos imóveis em um local específico, bem como os imóveis mais caros e mais baratos desse local.
 
 ## Observações
 
-Certifique-se de ter o Node.js e o npm instalados em sua máquina.
-A API utiliza o Puppeteer para realizar a extração de informações dos anúncios no site OLX. O Puppeteer será executado em modo headless (sem interface gráfica).
-O tempo de resposta pode variar dependendo da quantidade de páginas de anúncios a serem consultadas.
+- Certifique-se de ter o Node.js e o npm instalados em sua máquina.
+- A API utiliza o Puppeteer para realizar a extração de informações dos anúncios no site OLX. O Puppeteer será executado em modo headless (sem interface gráfica).
+- O tempo de resposta pode variar dependendo da quantidade de páginas de anúncios a serem consultadas.

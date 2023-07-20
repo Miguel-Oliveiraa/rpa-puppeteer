@@ -50,7 +50,7 @@ async function getImoveis(local) {
       const secondPage = await browser.newPage();
       await secondPage.goto(element.link);
   
-      secondPage.setDefaultTimeout(180_000);
+      secondPage.setDefaultTimeout(180000);
   
       let preco
       try {
@@ -68,13 +68,11 @@ async function getImoveis(local) {
       })
   
       const area = itens.find((string)=>string.includes("Área útil"))? itens.find((string)=>string.includes("Área útil")).replace("Área útil", '') : -1;
-  
-  
+
       const qtdQuartos = itens.find((string)=>string.includes("Quartos")) ? itens.find((string)=>string.includes("Quartos")).replace("Quartos", '') : -1;
-  
+
       let tipo = itens.find((string)=>string.includes("Tipo")) ? (itens.find((string)=>string.includes("Tipo"))).includes("Venda") ? "Venda" : "aluguel" : -1;
-      // tipo = tipo.includes("Venda") ? "Venda" : "Aluguel";
-  
+
       // Coloca todas informações em um array
       data.push({
           link: element.link,

@@ -11,5 +11,5 @@ async function fetchDataFromAPI(nome) {
 }
 
 // Chame a função para obter os dados do OLX por meio da API, fornecendo um nome específico
-const nomePesquisa = 'jardim primavera'; // Substitua pelo nome que você deseja pesquisar
+const nomePesquisa = 'boa viagem'; // Substitua pelo nome que você deseja pesquisar
 fetchDataFromAPI(nomePesquisa);

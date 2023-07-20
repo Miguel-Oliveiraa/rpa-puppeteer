@@ -12,7 +12,7 @@ const errorHandler = (error, req, res, next) => {
 };
 
 // Rotas
-app.get('/api/imoveis/:local', async (req, res) => {
+app.get('/api/imoveis/:local', async (req, res, next) => {
   try {
     const data = await getImoveis(req.params.local);
     res.json(data);
@@ -21,7 +21,7 @@ app.get('/api/imoveis/:local', async (req, res) => {
   }
 });
 
-app.get('/api/imoveis/:local/mais-barato', async (req, res) => {
+app.get('/api/imoveis/:local/mais-barato', async (req, res, next) => {
     try {
     const data = await getImovelMaisBarato(req.params.local);
       res.json(data);
@@ -30,7 +30,7 @@ app.get('/api/imoveis/:local/mais-barato', async (req, res) => {
     }
   });
 
-  app.get('/api/imoveis/:local/mais-caro', async (req, res) => {
+  app.get('/api/imoveis/:local/mais-caro', async (req, res, next) => {
     try {
       const data = await getImovelMaisCaro(req.params.local);
       res.json(data);
